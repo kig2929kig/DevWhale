@@ -1,2 +1,3 @@
 # DevWhale
-Transform into a developer
+github.com/kig2929kig/DevWhale
+
