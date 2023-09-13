@@ -1,4 +1,12 @@
-
+'''
+*************************************
+*     print Program informaion      *
+*            Ingoo Kang             *
+*            2023.09.13             *
+*                1.0                *
+*   https://github.com/kig2929kig   *
+*************************************
+'''
 def signLine(sign, length):
   for i in range(length):
     print(sign, end='')
@@ -40,10 +48,3 @@ def main():
 
 if __name__ == '__main__':
   main()
-  
-
-  
-  
-
-
-  
