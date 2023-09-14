@@ -40,5 +40,5 @@ def main():
         time.sleep(0.2)
         print('\r', end='', flush=True)
 
-
-main()
+if __name__ == '__main__':
+    main()
