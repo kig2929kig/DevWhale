@@ -13,11 +13,14 @@ def txtLength(text) :
       textLength = textLength + 1 # txt 한글이 아니면 길이를 +1
   return textLength
 
+def lineTitle(index):
+  linettl =['* 제  목 :', '* 만든이 :', '* 날  짜 :', '* 버  전 :', '* 깃허브 :' ]
+  return linettl[index]
 
-def printProgramInfoLine(text, singLineLength, textLength):
-  print('*', end='')
-  textSpace = (singLineLength - textLength) -2 # -2 -> front and back asterisk marks
-  textLeftSpace = int(textSpace / 2)
+def printProgramInfoLine(text, singLineLength, textLength, index):
+  print(lineTitle(index), end='')
+  textSpace = (singLineLength - textLength) 
+  textLeftSpace = int(textSpace / 2) 
   textRightSpace = textSpace - textLeftSpace
   signLine(' ', textLeftSpace)
   print(text, end='')
@@ -30,15 +33,15 @@ def printProgramInfo(title, author, date, codeVersion, address):
   dateLength = txtLength(date)
   codeVersionLength = txtLength(codeVersion)
   addressLength = txtLength(address)
-  signLineLength = max(titleLength, authorLength, dateLength, codeVersionLength, addressLength) + 10
+  signLineLength = max(titleLength, authorLength, dateLength, codeVersionLength, addressLength) + 20
   
-  signLine('*', signLineLength);print()
-  printProgramInfoLine(title, signLineLength, titleLength)
-  printProgramInfoLine(author, signLineLength, authorLength)
-  printProgramInfoLine(date, signLineLength, dateLength)
-  printProgramInfoLine(codeVersion, signLineLength, codeVersionLength)
-  printProgramInfoLine(address, signLineLength, addressLength)
-  signLine('*', signLineLength)
+  signLine('*', signLineLength+7);print()
+  printProgramInfoLine(title, signLineLength -4, titleLength, 0)
+  printProgramInfoLine(author, signLineLength-4, authorLength, 1)
+  printProgramInfoLine(date, signLineLength-4, dateLength, 2)
+  printProgramInfoLine(codeVersion, signLineLength-4, codeVersionLength, 3)
+  printProgramInfoLine(address, signLineLength-4, addressLength, 4)
+  signLine('*', signLineLength+7)
   
 def main():
   title = input('program title : ')
