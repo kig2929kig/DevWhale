@@ -42,6 +42,7 @@ def printProgramInfo(title, author, date, codeVersion, address):
   printProgramInfoLine(codeVersion, signLineLength-4, codeVersionLength, 3)
   printProgramInfoLine(address, signLineLength-4, addressLength, 4)
   signLine('*', signLineLength+7)
+  print()
   
 def main():
   title = input('program title : ')

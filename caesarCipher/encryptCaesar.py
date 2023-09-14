@@ -1,3 +1,9 @@
+import sys
+sys.path.append('C:\\git\\DevWhale\\')
+from printProgramInformation.printProgramInfo import printProgramInfo
+
+printProgramInfo('카이사르 암호 만들기', '강인구', '2023년 9월 14일', '1.0', 'https://github.com/kig2929kig')
+
 def caesarCipher(plaintext, key):
     first = ord(' ')
     last = ord('~')
@@ -17,7 +23,7 @@ def main():
     ciphertext = caesarCipher(plaintext, cipherKey)
     print('암호문: ', ciphertext)
 
-    with open('.//caesar_cipher//' + cipherFile, 'w') as cfile:
+    with open('.\\caesarCipher\\' + cipherFile, 'w') as cfile:
        cfile.write(ciphertext)
 
 if __name__ == '__main__' :
