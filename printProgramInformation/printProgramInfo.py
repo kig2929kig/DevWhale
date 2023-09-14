@@ -1,16 +1,19 @@
-'''
-*************************************
-*     print Program informaion      *
-*            Ingoo Kang             *
-*            2023.09.13             *
-*                1.0                *
-*   https://github.com/kig2929kig   *
-*************************************
-'''
+import unicodedata
+
 def signLine(sign, length):
   for i in range(length):
     print(sign, end='')
-    
+
+def txtLength(text) :
+  textLength = 0
+  for txt in text:
+    if unicodedata.east_asian_width(txt) == 'W':
+      textLength = textLength + 2 # txt 한글이면 길이를 +2
+    else :
+      textLength = textLength + 1 # txt 한글이 아니면 길이를 +1
+  return textLength
+
+
 def printProgramInfoLine(text, singLineLength, textLength):
   print('*', end='')
   textSpace = (singLineLength - textLength) -2 # -2 -> front and back asterisk marks
@@ -22,12 +25,12 @@ def printProgramInfoLine(text, singLineLength, textLength):
   print('*')
     
 def printProgramInfo(title, author, date, codeVersion, address):
-  titleLength = len(title)
-  authorLength = len(author)
-  dateLength = len(date)
-  codeVersionLength = len(codeVersion)
-  addressLength = len(address)
-  signLineLength = max(titleLength, authorLength, dateLength, codeVersionLength, addressLength) + 8
+  titleLength = txtLength(title)
+  authorLength = txtLength(author)
+  dateLength = txtLength(date)
+  codeVersionLength = txtLength(codeVersion)
+  addressLength = txtLength(address)
+  signLineLength = max(titleLength, authorLength, dateLength, codeVersionLength, addressLength) + 10
   
   signLine('*', signLineLength);print()
   printProgramInfoLine(title, signLineLength, titleLength)
